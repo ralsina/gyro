@@ -13,7 +13,7 @@
 
 	<link href="assets/css/bootstrap.min.css" rel="stylesheet">
 	<link href="assets/css/style.css" rel="stylesheet">
-
+	<link href="assets/css/simplemde.min.css" rel="stylesheet" >
 </head>
 
 <body>
@@ -46,18 +46,19 @@
 				<div class="container">
 					<!-- Modal -->
 					<div id="myModal" class="modal fade" role="dialog">
-						<div class="modal-dialog">
+						<div class="modal-dialog modal-lg">
 
 							<!-- Modal content-->
 							<div class="modal-content">
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
-									<h4 class="modal-title">Modal Header</h4>
+									<h4 class="modal-title">Edit Page</h4>
 								</div>
 								<div class="modal-body">
-									<p>Some text in the modal.</p>
+										<textarea id="editor"></textarea>
 								</div>
 								<div class="modal-footer">
+									<button type="button" class="btn btn-default">Save</button>
 									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								</div>
 							</div>
@@ -111,10 +112,14 @@
 			</div>
 		</div>
 	</div>
-
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>
 	<script src="assets/js/scripts.js"></script>
+	<script src="assets/js/simplemde.min.js"></script>
+	<script>
+		var simplemde = new SimpleMDE({ element: $("#editor")[0] });
+	</script>
+
 </body>
 
 </html>
