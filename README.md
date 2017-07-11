@@ -8,6 +8,7 @@ Easiest way: `fades -r requirements.txt gyro.py`
 
 Not so easy way: create a virtualenv manually, install dependencies from `requirements.txt`, run `gyro.py` with Python3
 
+![alt text](http://ralsina.me/images/gyro-1.png)
 
 ## Credits
 
