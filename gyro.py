@@ -14,6 +14,8 @@ app.static('/_static', './_static')
 # Load the only template we use globally
 with open(os.path.join('templates', 'index.html')) as inf:
     template = Template(inf.read())
+if not os.path.isdir('pages'):
+    os.makedirs('pages')
 
 
 @app.route('/<word:[A-z0-9]*>', methods=['GET'])

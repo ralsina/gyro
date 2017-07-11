@@ -1,7 +1,7 @@
 from distutils.core import setup
 setup(
   name = 'gyro',
-  packages = ['gyro'], # this must be the same as the name above
+  scripts = ['gyro.py'], # this must be the same as the name above
   version = '0.1',
   description = 'A small, nice, personal wiki',
   author = 'Roberto Alsina',
