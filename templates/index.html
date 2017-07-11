@@ -57,7 +57,7 @@
 									<textarea id="editor"></textarea>
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-default" onClick="alert('save')">Save</button>
+									<button type="button" class="btn btn-default" onClick="save()">Save</button>
 									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								</div>
 							</div>
@@ -73,11 +73,28 @@
 	<script src="/_static/assets/js/bootstrap.min.js"></script>
 	<script src="/_static/assets/js/scripts.js"></script>
 	<script src="/_static/assets/js/simplemde.min.js"></script>
+	<script src="/_static/assets/js/showdown.min.js"></script>
 	<script>
+		var text = $$('#content')[0].innerHTML;
+		var converter = new showdown.Converter()
+		html = converter.makeHtml(text)
+		$$('#content').html(html)
 		var simplemde = new SimpleMDE({
-			element: $$("#editor")[0]
+			element: $$("#editor")[0],
+			autofocus: true,
+			hideIcons: ['fullscreen', 'side-by-side']
 		});
-		simplemde.value($$('#content')[0].innerHTML)
+		simplemde.value(text)
+
+		function save() {
+			$$.post(window.url, {
+				markdown: simplemde.value(),
+			}, function(data) {
+				alert(data['message'])
+				$$("#myModal").modal("hide")
+				$$('#content').html(converter.makeHtml(simplemde.value()))
+			})
+		}
 	</script>
 
 </body>
