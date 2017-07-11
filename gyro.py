@@ -13,7 +13,7 @@ app.static('/_static', './_static')
 with open(os.path.join('templates', 'index.html')) as inf:
     template = Template(inf.read())
 
-@app.route('/<word:[A-z0-9]>', methods=['GET'])
+@app.route('/<word:[A-z0-9]*>', methods=['GET'])
 @app.route('/', methods=['GET'])
 async def get_wikiword(request, word='Index'):
     path = os.path.join('pages', word + '.md')
@@ -26,7 +26,7 @@ async def get_wikiword(request, word='Index'):
     page = template.substitute(content=content)
     return html(page)
 
-@app.route('/<word:[A-z0-9]>', methods=['POST'])
+@app.route('/<word:[A-z0-9]*>', methods=['POST'])
 @app.route('/', methods=['POST'])
 async def post_wikiword(request, word='Index'):
     path = os.path.join('pages', word + '.md')
