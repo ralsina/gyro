@@ -1,6 +1,14 @@
 # Gyro
 How easy to run can a wiki be? Let's see.
 
+
+## How to try it
+
+Easiest way: `fades -r requirements.txt gyro.py`
+
+Not so easy way: create a virtualenv manually, install dependencies from `requirements.txt`, run `gyro.py` with Python3
+
+
 ## Credits
 
 All licenses for software shipped as part of Gyro are kept in licenses/ but here's a shorter version.
