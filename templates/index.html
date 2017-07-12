@@ -33,7 +33,7 @@
 							<input type="text" id="search_input" class="form-control" placeholder="Search">
 						</span>
 						<form class="navbar-form navbar-right">
-							<button type="button" class="btn btn-info" data-toggle="modal" data-target="#editModal">Edit Page</button>
+							<button type="button" class="btn btn-info" onclick="editPage()">Edit Page</button>
 						</form>
 					</div>
 				</nav>
@@ -93,7 +93,7 @@
 		var converter = new showdown.Converter()
 		html = converter.makeHtml(text)
 		$$('#content').html(html)
-		var simplemde = new SimpleMDE({
+		simplemde = new SimpleMDE({
 			element: $$("#editor")[0],
 			autofocus: true,
 			hideIcons: ['fullscreen', 'side-by-side']
@@ -105,7 +105,6 @@
 				markdown: simplemde.value(),
 			}, function (data) {
 				alert(data['message'])
-				$$("#editModal").modal("hide")
 				$$('#content').html(converter.makeHtml(simplemde.value()))
 			})
 		}
@@ -116,7 +115,7 @@
 			}
 		});
 
-		$$.getJSON('_static/index.js', {}, function (data) {
+		$$.getJSON('/_index.js', {}, function (data) {
 			idx = lunr(function () {
 				this.ref('name')
 				this.field('text')
@@ -126,6 +125,10 @@
 				}, this)
 			})
 		})
+
+		function editPage() {
+			$$("#editModal").modal("show")
+		}
 
 		function search() {
 			$$("#searchModal").modal("show")
