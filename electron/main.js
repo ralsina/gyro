@@ -14,6 +14,8 @@ function createWindow() {
         }
     })
 
+    win.setMenu(null);
+
     // and load the index.html of the app.
     win.loadURL(url.format({
         pathname: path.join(__dirname, 'index.html'),
