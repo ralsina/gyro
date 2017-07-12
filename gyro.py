@@ -17,6 +17,11 @@ with open(os.path.join('templates', 'index.html')) as inf:
 if not os.path.isdir('pages'):
     os.makedirs('pages')
 
+@app.route('/_index.js')
+async def get_search_index(request):
+    if not os.path.isfile(os.path.join('_static', 'index.js')):
+        reindex_site()
+    return response.redirect('/_static/index.js')
 
 @app.route('/<word:[A-z0-9]*>', methods=['GET'])
 @app.route('/', methods=['GET'])

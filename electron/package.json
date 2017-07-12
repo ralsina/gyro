@@ -1,0 +1,8 @@
+{
+  "name": "gyro",
+  "version": "0.0.1",
+  "main": "main.js",
+  "dependencies": {
+    "electron": "^1.6.11"
+  }
+}

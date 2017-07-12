@@ -11,9 +11,9 @@
 	<meta name="description" content="Gyro is a small wiki engine">
 	<meta name="author" content="Roberto Alsina <roberto.alsina@gmail.com>">
 
-	<link href="/_static/assets/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/_static/assets/css/style.css" rel="stylesheet">
-	<link href="/_static/assets/css/simplemde.min.css" rel="stylesheet">
+	<link href="static/assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="static/assets/css/style.css" rel="stylesheet">
+	<link href="static/assets/css/simplemde.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -33,7 +33,7 @@
 							<input type="text" id="search_input" class="form-control" placeholder="Search">
 						</span>
 						<form class="navbar-form navbar-right">
-							<button type="button" class="btn btn-info" onclick="editPage()">Edit Page</button>
+							<button type="button" class="btn btn-info" id="editButton">Edit Page</button>
 						</form>
 					</div>
 				</nav>
@@ -51,7 +51,7 @@
 									<textarea id="editor"></textarea>
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-default" onClick="save()">Save</button>
+									<button type="button" class="btn btn-default" id="saveButton">Save</button>
 									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								</div>
 							</div>
@@ -77,70 +77,18 @@
 
 						</div>
 					</div>
-					<div id="content">${content}</div>
+					<div id="content"></div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script src="/_static/assets/js/jquery.min.js"></script>
-	<script src="/_static/assets/js/bootstrap.min.js"></script>
-	<script src="/_static/assets/js/scripts.js"></script>
-	<script src="/_static/assets/js/simplemde.min.js"></script>
-	<script src="/_static/assets/js/showdown.min.js"></script>
-	<script src="/_static/assets/js/lunr.js"></script>
-	<script>
-		var text = $$('#content')[0].innerHTML;
-		var converter = new showdown.Converter()
-		html = converter.makeHtml(text)
-		$$('#content').html(html)
-		simplemde = new SimpleMDE({
-			element: $$("#editor")[0],
-			autofocus: true,
-			hideIcons: ['fullscreen', 'side-by-side']
-		});
-		simplemde.value(text)
-
-		function save() {
-			$$.post(window.url, {
-				markdown: simplemde.value(),
-			}, function (data) {
-				alert(data['message'])
-				$$('#content').html(converter.makeHtml(simplemde.value()))
-			})
-		}
-
-		$$('#search_input').keyup(function (e) {
-			if (e.keyCode == 13) {
-				search()
-			}
-		});
-
-		$$.getJSON('/_index.js', {}, function (data) {
-			idx = lunr(function () {
-				this.ref('name')
-				this.field('text')
-
-				data.forEach(function (doc) {
-					this.add(doc)
-				}, this)
-			})
-		})
-
-		function editPage() {
-			$$("#editModal").modal("show")
-		}
-
-		function search() {
-			$$("#searchModal").modal("show")
-			var results = idx.search($$('#search_input').val())
-			var container = $$('#searchResults')
-			container.text('')
-			results.forEach(function (result) {
-				container.append('<li><a href="'+result.ref+'">'+result.ref+'</a>')
-			})
-		}
-	</script>
-
+	<script src="static/assets/js/jquery.min.js"></script>
+	<script src="static/assets/js/bootstrap.min.js"></script>
+	<script src="static/assets/js/scripts.js"></script>
+	<script src="static/assets/js/simplemde.min.js"></script>
+	<script src="static/assets/js/showdown.min.js"></script>
+	<script src="static/assets/js/lunr.js"></script>
+	<script src="index.js"></script>
 </body>
 
 </html>
