@@ -132,7 +132,7 @@
 
 		function search() {
 			$$("#searchModal").modal("show")
-			var results = idx.search("foo")
+			var results = idx.search($$('#search_input').val())
 			var container = $$('#searchResults')
 			container.text('')
 			results.forEach(function (result) {
