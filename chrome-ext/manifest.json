@@ -7,11 +7,12 @@
     "default_icon": "icon.png"
   },
   "background": {
-    "scripts": ["bg.js"]
+    "scripts": [
+      "bg.js"
+    ]
   },
   "permissions": [
     "tabs",
-    "webRequest",
-    "http://ralsina.me/gyro/*"
+    "storage"
   ]
 }

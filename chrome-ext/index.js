@@ -1,26 +1,27 @@
-const params = new URLSearchParams(location.search);
-q = params.get('q')
-if (!q || q == '') {
-    q = 'Index'
-}
+converter = new showdown.Converter()
 
-var text = localStorage.getItem(q)
-if (!text) {
-    text = 'No content yet';
+function load() {
+    q = window.location.hash
+    if (!q || q == '') {
+        q = 'Index'
+    }
+    q = q.toLowerCase()
+
+    var text = localStorage.getItem(q)
+    if (!text) {
+        text = 'No content yet';
+    }
+    html = converter.makeHtml(text)
+    $('#content').html(html)
+    simplemde.value(text)
+    $("#editModal").modal("hide")
+    $("#searchModal").modal("hide")
 }
-var converter = new showdown.Converter()
-html = converter.makeHtml(text)
-$('#content').html(html)
-simplemde = new SimpleMDE({
-    element: $("#editor")[0],
-    autofocus: true,
-    hideIcons: ['fullscreen', 'side-by-side']
-});
-simplemde.value(text)
 
 function save() {
-    localStorage.setItem(q, simplemde.value());
-    $('#content').html(converter.makeHtml(simplemde.value()))
+    var text = simplemde.value()
+    localStorage.setItem(q, text);
+    $('#content').html(converter.makeHtml(text))
 }
 
 $('#search_input').keyup(function (e) {
@@ -35,13 +36,13 @@ function editPage() {
 }
 
 function search() {
-    idx = lunr(function() {
+    idx = lunr(function () {
         this.ref('name')
         this.field('text')
-        for ( var i = 0, len = localStorage.length; i < len; ++i ) {
+        for (var i = 0, len = localStorage.length; i < len; ++i) {
             k = localStorage.key(i)
-            v =  localStorage.getItem(k)
-            this.add({name:k, text:v})
+            v = localStorage.getItem(k)
+            this.add({ name: k, text: v })
         }
     })
     $("#searchModal").modal("show")
@@ -49,11 +50,18 @@ function search() {
     var container = $('#searchResults')
     container.text('')
     results.forEach(function (result) {
-        container.append('<li><a href="' + result.ref + '">' + result.ref + '</a>')
+        container.append('<li><a href="' + location.origin + '/index.html' + result.ref + '">' + result.ref.slice(1,9999) + '</a>')
     })
 }
 
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#editButton').addEventListener('click', editPage);
     document.querySelector('#saveButton').addEventListener('click', save);
+    simplemde = new SimpleMDE({
+        element: $("#editor")[0],
+        autofocus: true,
+        hideIcons: ['fullscreen', 'side-by-side']
+    });
+    load();
+    $(window).bind('hashchange', load);
 });
