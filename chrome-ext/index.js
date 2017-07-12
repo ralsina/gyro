@@ -3,7 +3,7 @@ converter = new showdown.Converter()
 function load() {
     q = window.location.hash
     if (!q || q == '') {
-        q = 'Index'
+        q = '#Index'
     }
     q = q.toLowerCase()
 
@@ -16,12 +16,21 @@ function load() {
     simplemde.value(text)
     $("#editModal").modal("hide")
     $("#searchModal").modal("hide")
+
+    // Fix links in content to point to the right place
+    $('div#content a').each(function (index) {
+        var base_url = chrome.extension.getURL('')
+        if (this.href.startsWith(base_url)) {
+            this.href = base_url + 'index.html#' + this.pathname.slice(1, 9999)
+        }
+    })
+
 }
 
 function save() {
     var text = simplemde.value()
     localStorage.setItem(q, text);
-    $('#content').html(converter.makeHtml(text))
+    load();
 }
 
 $('#search_input').keyup(function (e) {
@@ -50,7 +59,7 @@ function search() {
     var container = $('#searchResults')
     container.text('')
     results.forEach(function (result) {
-        container.append('<li><a href="' + location.origin + '/index.html' + result.ref + '">' + result.ref.slice(1,9999) + '</a>')
+        container.append('<li><a href="' + location.origin + '/index.html' + result.ref + '">' + result.ref.slice(1, 9999) + '</a>')
     })
 }
 
