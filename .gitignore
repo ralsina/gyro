@@ -1,6 +1,11 @@
 # VSCODE
 .vscode/
 
+# runtime data
+pages/
+_static/index.js
+electron/static
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -10,6 +15,7 @@ __pycache__/
 *.so
 
 # Distribution / packaging
+MANIFEST
 .Python
 env/
 build/
