@@ -52,7 +52,7 @@ function search() {
     var container = $('#searchResults')
     container.text('')
     results.forEach(function (result) {
-        container.append('<li><a href="index.html' + result.ref + '">' + result.ref + '</a>')
+        container.append('<li><a href="#' + result.ref + '">' + result.ref + '</a>')
     })
 }
 
