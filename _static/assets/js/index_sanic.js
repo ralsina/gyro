@@ -23,7 +23,6 @@ function save() {
     })
 }
 
-
 $.getJSON('/_index.js', {}, function (data) {
     idx = lunr(function () {
         this.ref('name')
@@ -34,10 +33,6 @@ $.getJSON('/_index.js', {}, function (data) {
         }, this)
     })
 })
-
-function editPage() {
-    $("#editModal").modal("show")
-}
 
 function search() {
     $("#searchModal").modal("show")

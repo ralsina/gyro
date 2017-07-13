@@ -17,12 +17,6 @@ function save() {
     load();
 }
 
-
-
-function editPage() {
-    $("#editModal").modal("show")
-}
-
 function search() {
     idx = lunr(function () {
         this.ref('name')
