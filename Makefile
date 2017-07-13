@@ -3,6 +3,8 @@ all: electron sanic chromeext
 electron:
 	jinja2 templates/index.j2 data/electron.yaml   > electron/index.html
 	ln -sf ../_static electron/static
+
+electron-build:
 	electron-packager electron gyro --electron-version=1.6.11
 
 sanic:
