@@ -10,6 +10,20 @@ Not so easy way: create a virtualenv manually, install dependencies from `requir
 
 ![alt text](http://ralsina.me/images/gyro-1.png)
 
+### Docker
+
+1. Build the image
+
+  ```
+  docker build -t gyro .
+  ```
+  
+2. Run the image
+
+  ```
+  docker run -p 80:80 gyro
+  ```
+
 ## Credits
 
 All licenses for software shipped as part of Gyro are kept in licenses/ but here's a shorter version.

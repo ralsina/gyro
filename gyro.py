@@ -59,4 +59,7 @@ def reindex_site():
 
 
 if __name__ == '__main__':
-    app.run(host="127.0.0.1", port=8000, debug=True)
+    host = os.environ.get('host','127.0.0.1')
+    port = int(os.environ.get('port','8000'))
+    debug = os.environ.get('debug','true').lower() == 'true'
+    app.run(host, port, debug=debug)
