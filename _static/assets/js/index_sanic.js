@@ -70,20 +70,38 @@ function search() {
     })
 }
 
-function titleSuggestions(term, response) {
-    response(['foo', 'bar', 'foobar'])
+function titleSuggestions(term, suggest) {
+    term = term.toLowerCase();
+    $.ajax({
+        url: '_title_list',
+        dataType: "json",
+        success: function (choices) {
+            var matches = [];
+            for (i = 0; i < choices.length; i++) {
+                if (~choices[i].toLowerCase().indexOf(term)) {
+                    matches.push(choices[i]);
+                }
+            }
+            suggest(matches)
+        }
+    })
 }
 
-
-function newPage(){
-    $("#newPageModal").modal("show")
+function newPage() {
+    $("#newPageModal").modal("hide")
+    window.location.hash = '#' + $('#newPageName').val()
 }
 
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#editButton').addEventListener('click', editPage);
-    document.querySelector('#newPageButton').addEventListener('click', newPage);
+    document.querySelector('#newPageButton').addEventListener('click', function () {
+        $('#newPageName').val('')
+        $("#newPageModal").modal("show")
+    });
     document.querySelector('#saveButton').addEventListener('click', save);
-    $('#search_input').autoComplete({source: titleSuggestions})
+    document.querySelector('#createPageButton').addEventListener('click', newPage);
+    $('#search_input').autoComplete({ source: titleSuggestions })
+    $('#newPageName').autoComplete({ source: titleSuggestions })
     simplemde = new SimpleMDE({
         element: $("#editor")[0],
         autofocus: true,

@@ -18,6 +18,13 @@ async def get_search_index(request):
     return response.redirect('/_static/index.js')
 
 
+@app.route('/_title_list')
+async def get_title_list(request):
+    titles = glob.glob(os.path.join('pages', '*.md'))
+    titles = [os.path.splitext(os.path.basename(t))[0] for t in titles]
+    return response.json(titles)
+
+
 @app.route('/')
 async def get_index(request):
     with open(os.path.join('sanic', 'index.html')) as inf:
