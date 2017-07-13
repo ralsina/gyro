@@ -28,13 +28,13 @@ function search() {
         idx = lunr(function () {
             this.ref('name')
             this.field('text')
-
+            this.field('name')
             data.forEach(function (doc) {
                 this.add(doc)
             }, this)
         })
         $("#searchModal").modal("show")
-        var results = this.search($('#search_input').val())
+        var results = idx.search($('#search_input').val())
         var container = $('#searchResults')
         container.text('')
         results.forEach(function (result) {

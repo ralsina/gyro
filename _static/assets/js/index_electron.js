@@ -21,14 +21,15 @@ function search() {
     idx = lunr(function () {
         this.ref('name')
         this.field('text')
+        this.field('name')
         for (var i = 0, len = localStorage.length; i < len; ++i) {
             k = localStorage.key(i)
             v = localStorage.getItem(k)
-            this.add({ name: k, text: k + ' ' + v })
+            this.add({ name: k, text: k })
         }
     })
     $("#searchModal").modal("show")
-    var results = this.search($('#search_input').val())
+    var results = idx.search($('#search_input').val())
     var container = $('#searchResults')
     container.text('')
     results.forEach(function (result) {
