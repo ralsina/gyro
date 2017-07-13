@@ -24,11 +24,11 @@ function search() {
         for (var i = 0, len = localStorage.length; i < len; ++i) {
             k = localStorage.key(i)
             v = localStorage.getItem(k)
-            this.add({ name: k, text: v })
+            this.add({ name: k, text: k + ' ' + v })
         }
     })
     $("#searchModal").modal("show")
-    var results = idx.search($('#search_input').val())
+    var results = this.search($('#search_input').val())
     var container = $('#searchResults')
     container.text('')
     results.forEach(function (result) {

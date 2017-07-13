@@ -23,24 +23,23 @@ function save() {
     })
 }
 
-$.getJSON('/_index.js', {}, function (data) {
-    idx = lunr(function () {
-        this.ref('name')
-        this.field('text')
-
-        data.forEach(function (doc) {
-            this.add(doc)
-        }, this)
-    })
-})
-
 function search() {
-    $("#searchModal").modal("show")
-    var results = idx.search($('#search_input').val())
-    var container = $('#searchResults')
-    container.text('')
-    results.forEach(function (result) {
-        container.append('<li><a href="#' + result.ref + '">' + result.ref + '</a>')
+    $.getJSON('/_index.js', {}, function (data) {
+        idx = lunr(function () {
+            this.ref('name')
+            this.field('text')
+
+            data.forEach(function (doc) {
+                this.add(doc)
+            }, this)
+        })
+        $("#searchModal").modal("show")
+        var results = this.search($('#search_input').val())
+        var container = $('#searchResults')
+        container.text('')
+        results.forEach(function (result) {
+            container.append('<li><a href="#' + result.ref + '">' + result.ref + '</a>')
+        })
     })
 }
 
