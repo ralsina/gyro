@@ -31,3 +31,5 @@ All licenses for software shipped as part of Gyro are kept in licenses/ but here
 * The editor is [SimpleMDE](https://github.com/sparksuite/simplemde-markdown-editor), [LICENSE](https://github.com/sparksuite/simplemde-markdown-editor/blob/master/LICENSE)
 * To display Markdown, Gyro uses [Showdown](https://github.com/showdownjs/showdown), [LICENSE](https://github.com/showdownjs/showdown/blob/master/license.txt)
 * For searching, Gyro uses [Lunr](https://lunrjs.com), [LICENSE](https://github.com/olivernn/lunr.js/blob/master/LICENSE)
+* Icon made by [Retinaicons](http://www.flaticon.com/authors/retinaicons) from www.flaticon.com
+* Autocomplete via [jQuery-autoComplete](https://github.com/Pixabay/jQuery-autoComplete), [LICENSE](http://www.opensource.org/licenses/mit-license.php)

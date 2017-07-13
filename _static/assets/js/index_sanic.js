@@ -70,8 +70,13 @@ function search() {
     })
 }
 
+function newPage(){
+    $("#newPageModal").modal("show")
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#editButton').addEventListener('click', editPage);
+    document.querySelector('#newPageButton').addEventListener('click', newPage);
     document.querySelector('#saveButton').addEventListener('click', save);
     simplemde = new SimpleMDE({
         element: $("#editor")[0],

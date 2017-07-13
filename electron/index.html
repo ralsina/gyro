@@ -34,6 +34,7 @@
 						</span>
 						<form class="navbar-form navbar-right">
 							<button type="button" class="btn btn-info" id="editButton">Edit Page</button>
+							<button type="button" class="btn btn-info" id="newPageButton">New Page</button>
 						</form>
 					</div>
 				</nav>
@@ -51,13 +52,33 @@
 									<textarea id="editor"></textarea>
 								</div>
 								<div class="modal-footer">
+									<button type="button" class="btn" data-dismiss="modal">Close</button>
 									<button type="button" class="btn btn-default" id="saveButton">Save</button>
-									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 								</div>
 							</div>
 
 						</div>
-					</div>
+					</div> <!-- END edit Modal -->
+					<!-- Edit Modal -->
+					<div id="newPageModal" class="modal fade" role="dialog">
+						<div class="modal-dialog modal-lg">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">New Page</h4>
+								</div>
+								<div class="modal-body">
+									<input type="text" id="newPageName" class="form-control" placeholder="New Page Name">
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn" data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-default" id="createButton">Create</button>
+								</div>
+							</div>
+
+						</div>
+					</div> <!-- END edit Modal -->
 					<!-- Search result Modal -->
 					<div id="searchModal" class="modal fade" role="dialog">
 						<div class="modal-dialog modal-lg">
@@ -76,7 +97,7 @@
 							</div>
 
 						</div>
-					</div>
+					</div> <!-- END search result Modal -->
 					<div id="content"></div>
 				</div>
 			</div>
