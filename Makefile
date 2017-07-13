@@ -5,7 +5,8 @@ electron:
 	ln -sf ../_static electron/static
 
 electron-build:
-	electron-packager electron gyro --electron-version=1.6.11
+	npm install electron@1.6.11 --keep-dev
+	electron-packager electron gyro --electron-version=1.6.11 --overwrite
 
 sanic:
 	jinja2 templates/index.j2 data/sanic.yaml   > sanic/index.html
