@@ -1,4 +1,7 @@
-all: electron sanic chromeext
+all: electron sanic chromeext remove-extra
+
+remove-extra:
+	rm -f _static/_static
 
 electron:
 	jinja2 templates/index.j2 data/electron.yaml   > electron/index.html
@@ -15,4 +18,4 @@ chromeext:
 	jinja2 templates/index.j2 data/chromeext.yaml   > chromeext/index.html
 	ln -sf ../_static chromeext/static
 
-.PHONY: sanic electron chromeext
+.PHONY: sanic electron chromeext remove-extra
