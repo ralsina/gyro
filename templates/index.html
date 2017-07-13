@@ -11,9 +11,9 @@
 	<meta name="description" content="Gyro is a small wiki engine">
 	<meta name="author" content="Roberto Alsina <roberto.alsina@gmail.com>">
 
-	<link href="/_static/assets/css/bootstrap.min.css" rel="stylesheet">
-	<link href="/_static/assets/css/style.css" rel="stylesheet">
-	<link href="/_static/assets/css/simplemde.min.css" rel="stylesheet">
+	<link href="_static/assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="_static/assets/css/style.css" rel="stylesheet">
+	<link href="_static/assets/css/simplemde.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -77,45 +77,45 @@
 
 						</div>
 					</div>
-					<div id="content">${content}</div>
+					<div id="content"></div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script src="/_static/assets/js/jquery.min.js"></script>
-	<script src="/_static/assets/js/bootstrap.min.js"></script>
-	<script src="/_static/assets/js/scripts.js"></script>
-	<script src="/_static/assets/js/simplemde.min.js"></script>
-	<script src="/_static/assets/js/showdown.min.js"></script>
-	<script src="/_static/assets/js/lunr.js"></script>
+	<script src="_static/assets/js/jquery.min.js"></script>
+	<script src="_static/assets/js/bootstrap.min.js"></script>
+	<script src="_static/assets/js/scripts.js"></script>
+	<script src="_static/assets/js/simplemde.min.js"></script>
+	<script src="_static/assets/js/showdown.min.js"></script>
+	<script src="_static/assets/js/lunr.js"></script>
 	<script>
-		var text = $$('#content')[0].innerHTML;
+		var text = $('#content')[0].innerHTML;
 		var converter = new showdown.Converter()
 		html = converter.makeHtml(text)
-		$$('#content').html(html)
+		$('#content').html(html)
 		simplemde = new SimpleMDE({
-			element: $$("#editor")[0],
+			element: $("#editor")[0],
 			autofocus: true,
 			hideIcons: ['fullscreen', 'side-by-side']
 		});
 		simplemde.value(text)
 
 		function save() {
-			$$.post(window.url, {
+			$.post(window.url, {
 				markdown: simplemde.value(),
 			}, function (data) {
 				alert(data['message'])
-				$$('#content').html(converter.makeHtml(simplemde.value()))
+				$('#content').html(converter.makeHtml(simplemde.value()))
 			})
 		}
 
-		$$('#search_input').keyup(function (e) {
+		$('#search_input').keyup(function (e) {
 			if (e.keyCode == 13) {
 				search()
 			}
 		});
 
-		$$.getJSON('/_index.js', {}, function (data) {
+		$.getJSON('/_index.js', {}, function (data) {
 			idx = lunr(function () {
 				this.ref('name')
 				this.field('text')
@@ -127,16 +127,16 @@
 		})
 
 		function editPage() {
-			$$("#editModal").modal("show")
+			$("#editModal").modal("show")
 		}
 
 		function search() {
-			$$("#searchModal").modal("show")
-			var results = idx.search($$('#search_input').val())
-			var container = $$('#searchResults')
+			$("#searchModal").modal("show")
+			var results = idx.search($('#search_input').val())
+			var container = $('#searchResults')
 			container.text('')
 			results.forEach(function (result) {
-				container.append('<li><a href="'+result.ref+'">'+result.ref+'</a>')
+				container.append('<li><a href="' + result.ref + '">' + result.ref + '</a>')
 			})
 		}
 	</script>
