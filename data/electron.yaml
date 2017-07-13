@@ -1,2 +1,2 @@
-static: _static
+static: static
 index_js: index_electron.js
