@@ -54,6 +54,15 @@ async def post_wikiword(request, word='index'):
         reindex_site()  # FIXME: this can be made more efficient.
         return response.json({'message': 'Saved'})
 
+@app.route('/<word:[A-z0-9]*>', methods=['DELETE'])
+@app.route('/', methods=['DELETE'])
+async def del_wikiword(request, word='index'):
+    word = word.lower()
+    path = os.path.join('pages', word + '.md')
+    if os.path.isfile(path):
+        os.remove(path)
+    return response.json({'message': 'Removed'})
+
 
 def reindex_site():
     docs = []

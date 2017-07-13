@@ -13,8 +13,13 @@ function load() {
 
 function save() {
     var text = simplemde.value()
-    localStorage.setItem(q, text);
-    load();
+    localStorage.setItem(q, text)
+    load()
+}
+
+function deletePage() {
+    localStorage.removeItem(q)
+    load()
 }
 
 function search() {

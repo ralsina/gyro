@@ -23,6 +23,14 @@ function save() {
     })
 }
 
+function deletePage() {
+    $.ajax({
+        url: q,
+        type: 'DELETE',
+        success: load
+    });
+}
+
 function search() {
     $.getJSON('/_index.js', {}, function (data) {
         idx = lunr(function () {
