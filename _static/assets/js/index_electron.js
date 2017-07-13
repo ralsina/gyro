@@ -5,7 +5,7 @@ function load() {
     if (!q || q == '') {
         q = '#Index'
     }
-    q = q.toLowerCase()
+    q = q.toLowerCase().slice(1, 9999)
 
     var text = localStorage.getItem(q)
     if (!text) {
@@ -52,7 +52,7 @@ function search() {
     var container = $('#searchResults')
     container.text('')
     results.forEach(function (result) {
-        container.append('<li><a href="index.html' + result.ref + '">' + result.ref.slice(1, 9999) + '</a>')
+        container.append('<li><a href="index.html' + result.ref + '">' + result.ref + '</a>')
     })
 }
 
@@ -61,8 +61,8 @@ function titleSuggestions(term, suggest) {
     choices = localStorage.keys
     var matches = [];
     for (var i = 0, len = localStorage.length; i < len; ++i) {
-        if (~localStorage[i].toLowerCase().indexOf(term)) {
-            matches.push(localStorage[i]);
+        if (~localStorage.key(i).toLowerCase().indexOf(term)) {
+            matches.push(localStorage.key(i));
         }
     }
     suggest(matches)
