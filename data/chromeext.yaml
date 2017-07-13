@@ -1,2 +1,2 @@
 static: static
-index_js: chromeext.js
+index_js: index_electron.js
