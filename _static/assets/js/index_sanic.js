@@ -1,5 +1,4 @@
 converter = new showdown.Converter()
-converter = new showdown.Converter()
 
 function load() {
     q = window.location.hash
@@ -39,11 +38,6 @@ function save() {
     })
 }
 
-$('#search_input').keyup(function (e) {
-    if (e.keyCode == 13) {
-        search()
-    }
-});
 
 $.getJSON('/_index.js', {}, function (data) {
     idx = lunr(function () {
@@ -87,11 +81,6 @@ function titleSuggestions(term, suggest) {
     })
 }
 
-function newPage() {
-    $("#newPageModal").modal("hide")
-    window.location.hash = '#' + $('#newPageName').val()
-}
-
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#editButton').addEventListener('click', editPage);
     document.querySelector('#newPageButton').addEventListener('click', function () {
@@ -99,7 +88,10 @@ document.addEventListener('DOMContentLoaded', function () {
         $("#newPageModal").modal("show")
     });
     document.querySelector('#saveButton').addEventListener('click', save);
-    document.querySelector('#createPageButton').addEventListener('click', newPage);
+    document.querySelector('#createPageButton').addEventListener('click', function newPage() {
+        $("#newPageModal").modal("hide")
+        window.location.hash = '#' + $('#newPageName').val()
+    });
     $('#search_input').autoComplete({ source: titleSuggestions })
     $('#newPageName').autoComplete({ source: titleSuggestions })
     simplemde = new SimpleMDE({
@@ -109,4 +101,9 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     load();
     $(window).bind('hashchange', load);
+    $('#search_input').keyup(function (e) {
+        if (e.keyCode == 13) {
+            search()
+        }
+    });
 });
