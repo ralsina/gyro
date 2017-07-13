@@ -70,6 +70,11 @@ function search() {
     })
 }
 
+function titleSuggestions(term, response) {
+    response(['foo', 'bar', 'foobar'])
+}
+
+
 function newPage(){
     $("#newPageModal").modal("show")
 }
@@ -78,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#editButton').addEventListener('click', editPage);
     document.querySelector('#newPageButton').addEventListener('click', newPage);
     document.querySelector('#saveButton').addEventListener('click', save);
+    $('#search_input').autoComplete({source: titleSuggestions})
     simplemde = new SimpleMDE({
         element: $("#editor")[0],
         autofocus: true,
