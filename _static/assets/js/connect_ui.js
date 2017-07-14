@@ -1,4 +1,14 @@
-converter = new showdown.Converter()
+var extensions = function () {
+    var WikiWords = {
+        type: 'lang',
+        regex: /(\b[A-Z][a-z]+[A-Z][A-Za-z]*\b)/ ,
+        replace: '<a href="$1">$1</a>'
+    };
+    return [WikiWords]
+}
+
+converter = new showdown.Converter({extensions: [extensions]})
+
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#editButton').addEventListener('click', function () {
         $("#editModal").modal("show")
