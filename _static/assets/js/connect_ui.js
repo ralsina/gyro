@@ -35,6 +35,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 $('#helpContent').scrollspy({
                     target: '#helpToc'
                 })
+
+                // For some reason, this also shows in the TOC headers from outside help
+                // So clean that crap out
+                $('#helpToc a').each( function(i){
+                    if ($('#helpContent ' + this.hash).length == 0) {
+                        this.style.display = 'none'
+                    }
+                })
             }
         })
     });
@@ -58,6 +66,11 @@ document.addEventListener('DOMContentLoaded', function () {
         autofocus: true,
         hideIcons: ['fullscreen', 'side-by-side']
     });
+
+    // Max height for the editor and help widgets
+    // FIXME: 40em is bogus
+    $('div.CodeMirror-scroll').height('40em')
+    $('div#helpContent').height('40em')
 
     // Avoid "empty editor until you click" bug
     $('#editModal').on('shown.bs.modal', function () {
