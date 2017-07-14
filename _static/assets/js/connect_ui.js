@@ -12,8 +12,12 @@ document.addEventListener('DOMContentLoaded', function () {
         $("#newPageModal").modal("hide")
         window.location.hash = '#' + $('#newPageName').val()
     });
-    $('#search_input').autoComplete({ source: titleSuggestions })
-    $('#newPageName').autoComplete({ source: titleSuggestions })
+    $('#search_input').autoComplete({
+        source: titleSuggestions
+    })
+    $('#newPageName').autoComplete({
+        source: titleSuggestions
+    })
     simplemde = new SimpleMDE({
         element: $("#editor")[0],
         autofocus: true,
@@ -41,8 +45,34 @@ function actual_load(text) {
 
     // Fix links in content to point to the right place
     $('div#content a').each(function (index) {
-        s = this.href.split('/')
-        this.href = '#' + s[s.length - 1]
+        if (this.protocol == window.location.protocol) {
+            if (this.host == window.location.host) {
+                // This is inside gyro
+                href = this.getAttribute('href') // This is the actual href in the tag, not the resolved one
+                if (!href.startsWith('/')) {
+                    // Relative URL inside gyro
+                    base = window.location.hash.slice(1, 999)
+                    if (!base.starts_with('/')) {
+                        base = '/' + base
+                    }
+                    relative = href
+                    var stack = base.split("/"),
+                        parts = relative.split("/");
+                    stack.pop(); // remove current file name (or empty string)
+                    // (omit if "base" is the current folder without trailing slash)
+                    for (var i = 0; i < parts.length; i++) {
+                        if (parts[i] == ".")
+                            continue;
+                        if (parts[i] == "..")
+                            stack.pop();
+                        else
+                            stack.push(parts[i]);
+                    }
+                    href = stack.join("/");
+                }
+                this.href = window.location.href.split('#')[0] + '#' + href
+            }
+        }
     })
 
     // Set crumbs

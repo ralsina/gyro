@@ -6,12 +6,12 @@ description: |
     without a server, in a variety of environments.
 
 grade: devel
-confinement: devmode
+confinement: strict
 
 apps:
     gyro:
          command: wrapper
-         plugs: [network, x11, unity7, gsettings]
+         plugs: [network, unity7, gsettings, browser-support]
 
 parts:
   gyro:
