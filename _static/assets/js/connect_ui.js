@@ -2,10 +2,14 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#editButton').addEventListener('click', function () {
         $("#editModal").modal("show")
     });
+
     document.querySelector('#newPageButton').addEventListener('click', function () {
         $('#newPageName').val('')
         $("#newPageModal").modal("show")
     });
+    $('#newPageModal').on('shown.bs.modal', function () {
+        $('#newPageName').focus();
+    })
     document.querySelector('#saveButton').addEventListener('click', save);
     document.querySelector('#deletePageButton').addEventListener('click', deletePage);
     document.querySelector('#createPageButton').addEventListener('click', function newPage() {
@@ -23,6 +27,29 @@ document.addEventListener('DOMContentLoaded', function () {
         autofocus: true,
         hideIcons: ['fullscreen', 'side-by-side']
     });
+
+    // Avoid "empty editor until you click" bug
+    $('#editModal').on('shown.bs.modal', function () {
+        simplemde.codemirror.refresh()
+    })
+
+    $(document).keypress(function (e) {
+        focused = document.activeElement
+        // Don't switch focus when in textarea or input widgets
+        if ($('input, textarea').index(focused) == -1) {
+
+            if (e.which === 47) {
+                // "/" shortcut to search
+                $('#search_input').focus()
+                return false
+            } else if (e.which === 101) {
+                // "e" shortcut to edit
+                $("#editModal").modal("show")
+                return false
+            }
+        }
+    });
+
     load();
     $(window).bind('hashchange', load);
     $('#search_input').keyup(function (e) {
