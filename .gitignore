@@ -4,6 +4,9 @@ prime/
 stage/
 parts/
 dist/
+gyro_*.snap
+node_modules/
+snap/.snapcraft
 
 # VSCODE
 .vscode/
