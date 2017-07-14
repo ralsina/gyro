@@ -7,6 +7,7 @@ dist/
 gyro_*.snap
 node_modules/
 snap/.snapcraft
+_static/_static
 
 # VSCODE
 .vscode/
