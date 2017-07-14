@@ -1,3 +1,10 @@
+#Build stuff
+gyro-linux-x64/
+prime/
+stage/
+parts/
+dist/
+
 # VSCODE
 .vscode/
 
