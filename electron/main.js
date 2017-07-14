@@ -1,4 +1,7 @@
-const { app, BrowserWindow } = require('electron')
+const {
+    app,
+    BrowserWindow
+} = require('electron')
 const path = require('path')
 const url = require('url')
 
@@ -9,12 +12,14 @@ let win
 function createWindow() {
     // Create the browser window.
     win = new BrowserWindow({
-        width: 800, height: 600, webPreferences: {
+        width: 800,
+        height: 600,
+        webPreferences: {
             nodeIntegration: false
         }
     })
 
-    win.webContents.openDevTools()
+    // win.webContents.openDevTools()
     win.setMenu(null);
 
     // and load the index.html of the app.
@@ -31,6 +36,13 @@ function createWindow() {
         // when you should delete the corresponding element.
         win = null
     })
+
+    // Open _blank in external browser
+    win.webContents.on('new-window', function (e, url) {
+        e.preventDefault();
+        require('electron').shell.openExternal(url);
+    });
+
 }
 
 // This method will be called when Electron has finished

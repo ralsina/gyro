@@ -45,35 +45,34 @@ function actual_load(text) {
 
     // Fix links in content to point to the right place
     $('div#content a').each(function (index) {
-        if (this.protocol == window.location.protocol) {
-            if (this.host == window.location.host) {
-                // This is inside gyro
-                href = this.getAttribute('href') // This is the actual href in the tag, not the resolved one
-                if (!href.startsWith('/')) {
-                    // Relative URL inside gyro
-                    base = window.location.hash.slice(1, 999)
-                    if (!base.startsWith('/')) {
-                        base = '/' + base
-                    }
-                    relative = href
-                    var stack = base.split("/"),
-                        parts = relative.split("/");
-                    stack.pop(); // remove current file name (or empty string)
-                    // (omit if "base" is the current folder without trailing slash)
-                    for (var i = 0; i < parts.length; i++) {
-                        if (parts[i] == ".")
-                            continue;
-                        if (parts[i] == "..")
-                            stack.pop();
-                        else
-                            stack.push(parts[i]);
-                    }
-                    href = stack.join("/");
+        if (this.protocol == window.location.protocol && this.host == window.location.host) {
+            // This is inside gyro
+            href = this.getAttribute('href') // This is the actual href in the tag, not the resolved one
+            if (!href.startsWith('/')) {
+                // Relative URL inside gyro
+                base = window.location.hash.slice(1, 999)
+                if (!base.startsWith('/')) {
+                    base = '/' + base
                 }
-                this.href = window.location.href.split('#')[0] + '#' + href
-            } else {
-                this.target = '_blank'
+                relative = href
+                var stack = base.split("/"),
+                    parts = relative.split("/");
+                stack.pop(); // remove current file name (or empty string)
+                // (omit if "base" is the current folder without trailing slash)
+                for (var i = 0; i < parts.length; i++) {
+                    if (parts[i] == ".")
+                        continue;
+                    if (parts[i] == "..")
+                        stack.pop();
+                    else
+                        stack.push(parts[i]);
+                }
+                href = stack.join("/");
             }
+            this.href = window.location.href.split('#')[0] + '#' + href
+        } else {
+            // outside gyro
+            this.target = '_blank'
         }
     })
 
