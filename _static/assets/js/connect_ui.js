@@ -18,6 +18,18 @@ document.addEventListener('DOMContentLoaded', function () {
         $('#newPageName').val('')
         $("#newPageModal").modal("show")
     });
+    document.querySelector('#helpButton').addEventListener('click', function () {
+    $.ajax({
+        // FIXME: per-backed path
+        url: '/_static/help.md',
+        dataType: "text",
+        success: function(text) {
+            html = converter.makeHtml(text)
+            $('#helpContent').html(html)
+        }
+    });
+    $("#helpModal").modal("show")
+    });
     $('#newPageModal').on('shown.bs.modal', function () {
         $('#newPageName').focus();
     })
