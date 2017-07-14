@@ -1,3 +1,4 @@
+converter = new showdown.Converter()
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#editButton').addEventListener('click', function () {
         $("#editModal").modal("show")

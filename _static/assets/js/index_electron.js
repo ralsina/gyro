@@ -1,5 +1,3 @@
-converter = new showdown.Converter()
-
 function load() {
     q = window.location.hash
     if (!q || q == '') {
