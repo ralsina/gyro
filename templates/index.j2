@@ -12,6 +12,7 @@
 	<meta name="author" content="Roberto Alsina <roberto.alsina@gmail.com>">
 
 	<link href="{{static}}/assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="{{static}}/assets/css/bootstrap-toc.min.css" rel="stylesheet">
 	<link href="{{static}}/assets/css/simplemde.min.css" rel="stylesheet">
 	<link href="{{static}}/assets/css/jquery.auto-complete.css" rel="stylesheet">
 	<link href="{{static}}/assets/css/style.css" rel="stylesheet">
@@ -73,7 +74,14 @@
 									<h4 class="modal-title">Help</h4>
 								</div>
 								<div class="modal-body">
-									<div id="helpContent"></div>
+									<div class="row">
+										<div class="col-sm-3">
+											<nav id="helpToc"></nav>
+										</div>
+										<div class="col-sm-9">
+											<div id="helpContent" style="height: 40em; overflow-y: scroll;"></div>
+										</div>
+									</div>
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn" data-dismiss="modal">Close</button>
@@ -131,6 +139,7 @@
 	<script src="{{static}}/assets/js/jquery.min.js"></script>
 	<script src="{{static}}/assets/js/jquery.auto-complete.min.js"></script>
 	<script src="{{static}}/assets/js/bootstrap.min.js"></script>
+	<script src="{{static}}/assets/js/bootstrap-toc.min.js"></script>
 	<script src="{{static}}/assets/js/simplemde.min.js"></script>
 	<script src="{{static}}/assets/js/showdown.min.js"></script>
 	<script src="{{static}}/assets/js/lunr.js"></script>

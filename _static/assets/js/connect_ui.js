@@ -1,13 +1,15 @@
 var extensions = function () {
     var WikiWords = {
         type: 'lang',
-        regex: /(\b[A-Z][a-z]+[A-Z][A-Za-z]*\b)/ ,
+        regex: /(\b[A-Z][a-z]+[A-Z][A-Za-z]*\b)/,
         replace: '<a href="$1">$1</a>'
     };
     return [WikiWords]
 }
 
-converter = new showdown.Converter({extensions: [extensions]})
+converter = new showdown.Converter({
+    extensions: [extensions]
+})
 
 document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#editButton').addEventListener('click', function () {
@@ -19,16 +21,22 @@ document.addEventListener('DOMContentLoaded', function () {
         $("#newPageModal").modal("show")
     });
     document.querySelector('#helpButton').addEventListener('click', function () {
-    $.ajax({
-        // FIXME: per-backed path
-        url: '/_static/help.md',
-        dataType: "text",
-        success: function(text) {
-            html = converter.makeHtml(text)
-            $('#helpContent').html(html)
-        }
-    });
-    $("#helpModal").modal("show")
+        $.ajax({
+            // FIXME: per-backed path
+            url: '/_static/help.md',
+            dataType: "text",
+            success: function (text) {
+                html = converter.makeHtml(text)
+                $('#helpContent').html(html)
+                $('#helpToc').html('')
+                $("#helpModal").modal("show")
+                var $helpNav = $('#helpToc');
+                Toc.init($helpNav);
+                $('#helpContent').scrollspy({
+                    target: '#helpToc'
+                })
+            }
+        })
     });
     $('#newPageModal').on('shown.bs.modal', function () {
         $('#newPageName').focus();
@@ -74,7 +82,21 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     load();
-    $(window).bind('hashchange', load);
+
+    // Open a new page on hash changes
+    $(window).bind('hashchange', function() {
+        // If we are showing a modal, don't jump to a separate page
+        if (!$('#editModal').is(':visible') &&
+            !$('#helpModal').is(':visible') &&
+            !$('#newPageModal').is(':visible') &&
+            !$('#searchModal').is(':visible')) {
+                load()
+            } else {
+                // When a modal is shown, keep the hash fixed to the wiki page
+                window.location.hash = q
+            }
+    });
+
     $('#search_input').keyup(function (e) {
         if (e.keyCode == 13) {
             search()
