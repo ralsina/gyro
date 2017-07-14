@@ -52,7 +52,7 @@ function actual_load(text) {
                 if (!href.startsWith('/')) {
                     // Relative URL inside gyro
                     base = window.location.hash.slice(1, 999)
-                    if (!base.starts_with('/')) {
+                    if (!base.startsWith('/')) {
                         base = '/' + base
                     }
                     relative = href
@@ -71,6 +71,8 @@ function actual_load(text) {
                     href = stack.join("/");
                 }
                 this.href = window.location.href.split('#')[0] + '#' + href
+            } else {
+                this.target = '_blank'
             }
         }
     })
