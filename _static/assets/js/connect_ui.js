@@ -79,7 +79,11 @@ function actual_load(text) {
     // Set crumbs
     ac = ''
     $('ol#crumbs').text('')
-    q.split('/').forEach(function (crumb) {
+    path = q
+    if (path.startsWith('/') && !path.startsWith('/index')) {
+        path = 'index' + path
+    }
+    path.split('/').forEach(function (crumb) {
         if (ac) {
             ac = ac + '/'
         }

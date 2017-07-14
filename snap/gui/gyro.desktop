@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Gyro
+X-GNOME-FullName=Gyro
+Comment=Gyro is a serverless Wiki
+Exec=gyro
+Icon=${SNAP}/snap/icon.png
+Terminal=false
+Type=Application
+Version=0.2
