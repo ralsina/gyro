@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#helpButton').addEventListener('click', function () {
         $.ajax({
             // FIXME: per-backed path
-            url: '/_static/help.md',
+            url: help_path,
             dataType: "text",
             success: function (text) {
                 html = converter.makeHtml(text)
