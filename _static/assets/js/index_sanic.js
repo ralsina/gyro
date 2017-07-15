@@ -44,7 +44,7 @@ function search() {
         var container = $('#searchResults')
         container.text('')
         results.forEach(function (result) {
-            container.append('<li><a href="#' + result.ref + '">' + result.ref + '</a>')
+            container.append('<li class="list-group-item"><a href="#' + result.ref + '">' + result.ref + '</a>')
         })
     })
 }
