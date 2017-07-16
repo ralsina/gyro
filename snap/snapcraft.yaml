@@ -1,5 +1,5 @@
 name: gyro
-version: '0.2'
+version: '0.3'
 summary: Server-less Wiki
 description: |
     Gyro aims to produce a delicious, quick wiki that runs with or

@@ -2,7 +2,7 @@
   "name": "gyro",
   "description": "A tasty personal Wiki",
   "author": "Roberto Alsina <roberto.alsina@gmail.com>",
-  "version": "0.0.1",
+  "version": "0.3.0",
   "icon": "icon.png",
   "main": "main.js",
   "devDependencies": {
