@@ -10,69 +10,61 @@ It's available in several different flavours:
 
 In all cases it should behave the same.
 
+The basic concept is that you have as many pages as you want, with whatever content you want. Each page is identified by a *path* such as "/index" or "/expenses/may".
+
+The content in the pages is written in a language called "Markdown", which aims to be simple to learn and can be easily converted to HTML or other formats you may find useful.
+
 # Creating Pages
 
 <button type="button" class="btn btn-info" aria-label="New Page"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button>
 
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut neque vel diam finibus sodales. Aliquam et rutrum nulla. Donec posuere enim in pulvinar hendrerit. Sed et tellus erat. Curabitur lorem nibh, euismod vitae erat eu, bibendum aliquam nibh. Mauris eros justo, finibus ac porttitor pulvinar, ultrices eleifend arcu. Aliquam erat volutpat. Morbi aliquam nibh vel dolor dictum, eget ultricies nulla faucibus. Nulla eu dictum eros, sit amet dignissim risus. Pellentesque scelerisque elit ipsum, in tristique diam molestie id. Quisque non tellus non mi bibendum dignissim a a nisl. Nullam maximus, purus et porttitor vulputate, augue libero aliquam magna, id vulputate eros felis sit amet mauris.
-
-Nullam ac augue non justo suscipit venenatis nec et lectus. Integer ut odio ut lorem mattis tempor. Nunc ex lectus, convallis vitae dui ut, ornare maximus elit. Donec euismod nibh vulputate turpis consectetur, non tempus nibh pretium. Nam ac finibus nisi. Nulla vitae ipsum vel quam suscipit fermentum eu non augue. Suspendisse nunc magna, efficitur at efficitur tincidunt, aliquam vitae neque. Nulla dapibus orci quis tincidunt aliquet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse nec sem molestie, iaculis nunc vel, tempus sapien. Nulla facilisi. Suspendisse potenti. Pellentesque auctor lobortis auctor.
-
-Donec ac velit lorem. Aenean auctor auctor purus, vel venenatis dolor bibendum eget. Etiam hendrerit sapien eu imperdiet finibus. Phasellus nec nisi non neque euismod condimentum vitae quis urna. Fusce euismod lacinia sollicitudin. Fusce pulvinar cursus risus, sed maximus justo convallis eu. Morbi ut justo sodales, convallis ex vel, lacinia diam.
-
-Aenean pulvinar consequat sollicitudin. Integer laoreet velit sit amet neque pulvinar ultricies. Praesent vehicula mi diam, sed posuere lorem tristique in. Phasellus accumsan, massa in scelerisque mollis, orci magna commodo ante, non imperdiet tortor nunc eu ante. Curabitur imperdiet varius nunc, ut convallis mi placerat et. Cras nec gravida sem, eu lacinia urna. Donec dignissim bibendum purus ut ornare. Ut sit amet purus dictum, congue est sit amet, gravida mi. In consectetur, est sit amet lacinia condimentum, dolor metus tempor justo, nec porttitor sem nunc quis tortor. Cras in scelerisque ipsum. Proin egestas rhoncus ligula, varius facilisis urna. Ut nunc dui, tincidunt eu mi vitae, euismod mattis massa. Donec rutrum magna aliquet nisl viverra maximus. Integer vitae urna lacinia, scelerisque tellus non, hendrerit sapien. Donec lobortis venenatis ligula, id mattis mi volutpat vitae. Vestibulum tempus et felis id feugiat.
-
-Duis ac gravida velit. Vivamus vel metus ut dui vehicula elementum. Mauris vulputate rhoncus nibh, vitae elementum tortor efficitur at. Quisque nunc felis, maximus in egestas ac, aliquam ut enim. Morbi quis elit neque. Vivamus ligula sem, imperdiet in bibendum fermentum, pharetra a urna. Maecenas id faucibus lectus, a convallis massa. Ut vel condimentum tortor, at euismod tellus. Sed sit amet ultrices magna, et facilisis leo. Duis vel aliquet orci, consequat rutrum nibh. Curabitur eget nisl vel enim gravida cursus scelerisque at metus. Aenean ac ipsum dui. Nam sed quam vel lectus cursus mattis.
+To create a new page, click on that button and write what the path of the new page is. Alternatively, if you create a link to a page that doesn't exist, you can follow that link and open the page. Then, if you put content there, it's created.
 
 # Editing Pages
 
 <button type="button" class="btn btn-info" aria-label="Edit Page"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
 
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut neque vel diam finibus sodales. Aliquam et rutrum nulla. Donec posuere enim in pulvinar hendrerit. Sed et tellus erat. Curabitur lorem nibh, euismod vitae erat eu, bibendum aliquam nibh. Mauris eros justo, finibus ac porttitor pulvinar, ultrices eleifend arcu. Aliquam erat volutpat. Morbi aliquam nibh vel dolor dictum, eget ultricies nulla faucibus. Nulla eu dictum eros, sit amet dignissim risus. Pellentesque scelerisque elit ipsum, in tristique diam molestie id. Quisque non tellus non mi bibendum dignissim a a nisl. Nullam maximus, purus et porttitor vulputate, augue libero aliquam magna, id vulputate eros felis sit amet mauris.
-
-Nullam ac augue non justo suscipit venenatis nec et lectus. Integer ut odio ut lorem mattis tempor. Nunc ex lectus, convallis vitae dui ut, ornare maximus elit. Donec euismod nibh vulputate turpis consectetur, non tempus nibh pretium. Nam ac finibus nisi. Nulla vitae ipsum vel quam suscipit fermentum eu non augue. Suspendisse nunc magna, efficitur at efficitur tincidunt, aliquam vitae neque. Nulla dapibus orci quis tincidunt aliquet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse nec sem molestie, iaculis nunc vel, tempus sapien. Nulla facilisi. Suspendisse potenti. Pellentesque auctor lobortis auctor.
-
-Donec ac velit lorem. Aenean auctor auctor purus, vel venenatis dolor bibendum eget. Etiam hendrerit sapien eu imperdiet finibus. Phasellus nec nisi non neque euismod condimentum vitae quis urna. Fusce euismod lacinia sollicitudin. Fusce pulvinar cursus risus, sed maximus justo convallis eu. Morbi ut justo sodales, convallis ex vel, lacinia diam.
-
-Aenean pulvinar consequat sollicitudin. Integer laoreet velit sit amet neque pulvinar ultricies. Praesent vehicula mi diam, sed posuere lorem tristique in. Phasellus accumsan, massa in scelerisque mollis, orci magna commodo ante, non imperdiet tortor nunc eu ante. Curabitur imperdiet varius nunc, ut convallis mi placerat et. Cras nec gravida sem, eu lacinia urna. Donec dignissim bibendum purus ut ornare. Ut sit amet purus dictum, congue est sit amet, gravida mi. In consectetur, est sit amet lacinia condimentum, dolor metus tempor justo, nec porttitor sem nunc quis tortor. Cras in scelerisque ipsum. Proin egestas rhoncus ligula, varius facilisis urna. Ut nunc dui, tincidunt eu mi vitae, euismod mattis massa. Donec rutrum magna aliquet nisl viverra maximus. Integer vitae urna lacinia, scelerisque tellus non, hendrerit sapien. Donec lobortis venenatis ligula, id mattis mi volutpat vitae. Vestibulum tempus et felis id feugiat.
-
-Duis ac gravida velit. Vivamus vel metus ut dui vehicula elementum. Mauris vulputate rhoncus nibh, vitae elementum tortor efficitur at. Quisque nunc felis, maximus in egestas ac, aliquam ut enim. Morbi quis elit neque. Vivamus ligula sem, imperdiet in bibendum fermentum, pharetra a urna. Maecenas id faucibus lectus, a convallis massa. Ut vel condimentum tortor, at euismod tellus. Sed sit amet ultrices magna, et facilisis leo. Duis vel aliquet orci, consequat rutrum nibh. Curabitur eget nisl vel enim gravida cursus scelerisque at metus. Aenean ac ipsum dui. Nam sed quam vel lectus cursus mattis.
 ## Markdown Syntax
 
+Something like this [markdown reference](http://commonmark.org/help/) and [tutorial](http://commonmark.org/help/tutorial/)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut neque vel diam finibus sodales. Aliquam et rutrum nulla. Donec posuere enim in pulvinar hendrerit. Sed et tellus erat. Curabitur lorem nibh, euismod vitae erat eu, bibendum aliquam nibh. Mauris eros justo, finibus ac porttitor pulvinar, ultrices eleifend arcu. Aliquam erat volutpat. Morbi aliquam nibh vel dolor dictum, eget ultricies nulla faucibus. Nulla eu dictum eros, sit amet dignissim risus. Pellentesque scelerisque elit ipsum, in tristique diam molestie id. Quisque non tellus non mi bibendum dignissim a a nisl. Nullam maximus, purus et porttitor vulputate, augue libero aliquam magna, id vulputate eros felis sit amet mauris.
-
-Nullam ac augue non justo suscipit venenatis nec et lectus. Integer ut odio ut lorem mattis tempor. Nunc ex lectus, convallis vitae dui ut, ornare maximus elit. Donec euismod nibh vulputate turpis consectetur, non tempus nibh pretium. Nam ac finibus nisi. Nulla vitae ipsum vel quam suscipit fermentum eu non augue. Suspendisse nunc magna, efficitur at efficitur tincidunt, aliquam vitae neque. Nulla dapibus orci quis tincidunt aliquet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse nec sem molestie, iaculis nunc vel, tempus sapien. Nulla facilisi. Suspendisse potenti. Pellentesque auctor lobortis auctor.
-
-Donec ac velit lorem. Aenean auctor auctor purus, vel venenatis dolor bibendum eget. Etiam hendrerit sapien eu imperdiet finibus. Phasellus nec nisi non neque euismod condimentum vitae quis urna. Fusce euismod lacinia sollicitudin. Fusce pulvinar cursus risus, sed maximus justo convallis eu. Morbi ut justo sodales, convallis ex vel, lacinia diam.
-
-Aenean pulvinar consequat sollicitudin. Integer laoreet velit sit amet neque pulvinar ultricies. Praesent vehicula mi diam, sed posuere lorem tristique in. Phasellus accumsan, massa in scelerisque mollis, orci magna commodo ante, non imperdiet tortor nunc eu ante. Curabitur imperdiet varius nunc, ut convallis mi placerat et. Cras nec gravida sem, eu lacinia urna. Donec dignissim bibendum purus ut ornare. Ut sit amet purus dictum, congue est sit amet, gravida mi. In consectetur, est sit amet lacinia condimentum, dolor metus tempor justo, nec porttitor sem nunc quis tortor. Cras in scelerisque ipsum. Proin egestas rhoncus ligula, varius facilisis urna. Ut nunc dui, tincidunt eu mi vitae, euismod mattis massa. Donec rutrum magna aliquet nisl viverra maximus. Integer vitae urna lacinia, scelerisque tellus non, hendrerit sapien. Donec lobortis venenatis ligula, id mattis mi volutpat vitae. Vestibulum tempus et felis id feugiat.
-
-Duis ac gravida velit. Vivamus vel metus ut dui vehicula elementum. Mauris vulputate rhoncus nibh, vitae elementum tortor efficitur at. Quisque nunc felis, maximus in egestas ac, aliquam ut enim. Morbi quis elit neque. Vivamus ligula sem, imperdiet in bibendum fermentum, pharetra a urna. Maecenas id faucibus lectus, a convallis massa. Ut vel condimentum tortor, at euismod tellus. Sed sit amet ultrices magna, et facilisis leo. Duis vel aliquet orci, consequat rutrum nibh. Curabitur eget nisl vel enim gravida cursus scelerisque at metus. Aenean ac ipsum dui. Nam sed quam vel lectus cursus mattis.
 # Keyboard Shortcuts
 
+* To start searching, press "/"
+* For help, press "?"
+* To edit the current page, press "e"
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut neque vel diam finibus sodales. Aliquam et rutrum nulla. Donec posuere enim in pulvinar hendrerit. Sed et tellus erat. Curabitur lorem nibh, euismod vitae erat eu, bibendum aliquam nibh. Mauris eros justo, finibus ac porttitor pulvinar, ultrices eleifend arcu. Aliquam erat volutpat. Morbi aliquam nibh vel dolor dictum, eget ultricies nulla faucibus. Nulla eu dictum eros, sit amet dignissim risus. Pellentesque scelerisque elit ipsum, in tristique diam molestie id. Quisque non tellus non mi bibendum dignissim a a nisl. Nullam maximus, purus et porttitor vulputate, augue libero aliquam magna, id vulputate eros felis sit amet mauris.
-
-Nullam ac augue non justo suscipit venenatis nec et lectus. Integer ut odio ut lorem mattis tempor. Nunc ex lectus, convallis vitae dui ut, ornare maximus elit. Donec euismod nibh vulputate turpis consectetur, non tempus nibh pretium. Nam ac finibus nisi. Nulla vitae ipsum vel quam suscipit fermentum eu non augue. Suspendisse nunc magna, efficitur at efficitur tincidunt, aliquam vitae neque. Nulla dapibus orci quis tincidunt aliquet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse nec sem molestie, iaculis nunc vel, tempus sapien. Nulla facilisi. Suspendisse potenti. Pellentesque auctor lobortis auctor.
-
-Donec ac velit lorem. Aenean auctor auctor purus, vel venenatis dolor bibendum eget. Etiam hendrerit sapien eu imperdiet finibus. Phasellus nec nisi non neque euismod condimentum vitae quis urna. Fusce euismod lacinia sollicitudin. Fusce pulvinar cursus risus, sed maximus justo convallis eu. Morbi ut justo sodales, convallis ex vel, lacinia diam.
-
-Aenean pulvinar consequat sollicitudin. Integer laoreet velit sit amet neque pulvinar ultricies. Praesent vehicula mi diam, sed posuere lorem tristique in. Phasellus accumsan, massa in scelerisque mollis, orci magna commodo ante, non imperdiet tortor nunc eu ante. Curabitur imperdiet varius nunc, ut convallis mi placerat et. Cras nec gravida sem, eu lacinia urna. Donec dignissim bibendum purus ut ornare. Ut sit amet purus dictum, congue est sit amet, gravida mi. In consectetur, est sit amet lacinia condimentum, dolor metus tempor justo, nec porttitor sem nunc quis tortor. Cras in scelerisque ipsum. Proin egestas rhoncus ligula, varius facilisis urna. Ut nunc dui, tincidunt eu mi vitae, euismod mattis massa. Donec rutrum magna aliquet nisl viverra maximus. Integer vitae urna lacinia, scelerisque tellus non, hendrerit sapien. Donec lobortis venenatis ligula, id mattis mi volutpat vitae. Vestibulum tempus et felis id feugiat.
-
-Duis ac gravida velit. Vivamus vel metus ut dui vehicula elementum. Mauris vulputate rhoncus nibh, vitae elementum tortor efficitur at. Quisque nunc felis, maximus in egestas ac, aliquam ut enim. Morbi quis elit neque. Vivamus ligula sem, imperdiet in bibendum fermentum, pharetra a urna. Maecenas id faucibus lectus, a convallis massa. Ut vel condimentum tortor, at euismod tellus. Sed sit amet ultrices magna, et facilisis leo. Duis vel aliquet orci, consequat rutrum nibh. Curabitur eget nisl vel enim gravida cursus scelerisque at metus. Aenean ac ipsum dui. Nam sed quam vel lectus cursus mattis.
 
 # About Gyro
 
+MIT License
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ut neque vel diam finibus sodales. Aliquam et rutrum nulla. Donec posuere enim in pulvinar hendrerit. Sed et tellus erat. Curabitur lorem nibh, euismod vitae erat eu, bibendum aliquam nibh. Mauris eros justo, finibus ac porttitor pulvinar, ultrices eleifend arcu. Aliquam erat volutpat. Morbi aliquam nibh vel dolor dictum, eget ultricies nulla faucibus. Nulla eu dictum eros, sit amet dignissim risus. Pellentesque scelerisque elit ipsum, in tristique diam molestie id. Quisque non tellus non mi bibendum dignissim a a nisl. Nullam maximus, purus et porttitor vulputate, augue libero aliquam magna, id vulputate eros felis sit amet mauris.
+Copyright (c) 2017 Roberto Alsina
 
-Nullam ac augue non justo suscipit venenatis nec et lectus. Integer ut odio ut lorem mattis tempor. Nunc ex lectus, convallis vitae dui ut, ornare maximus elit. Donec euismod nibh vulputate turpis consectetur, non tempus nibh pretium. Nam ac finibus nisi. Nulla vitae ipsum vel quam suscipit fermentum eu non augue. Suspendisse nunc magna, efficitur at efficitur tincidunt, aliquam vitae neque. Nulla dapibus orci quis tincidunt aliquet. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse nec sem molestie, iaculis nunc vel, tempus sapien. Nulla facilisi. Suspendisse potenti. Pellentesque auctor lobortis auctor.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-Donec ac velit lorem. Aenean auctor auctor purus, vel venenatis dolor bibendum eget. Etiam hendrerit sapien eu imperdiet finibus. Phasellus nec nisi non neque euismod condimentum vitae quis urna. Fusce euismod lacinia sollicitudin. Fusce pulvinar cursus risus, sed maximus justo convallis eu. Morbi ut justo sodales, convallis ex vel, lacinia diam.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-Aenean pulvinar consequat sollicitudin. Integer laoreet velit sit amet neque pulvinar ultricies. Praesent vehicula mi diam, sed posuere lorem tristique in. Phasellus accumsan, massa in scelerisque mollis, orci magna commodo ante, non imperdiet tortor nunc eu ante. Curabitur imperdiet varius nunc, ut convallis mi placerat et. Cras nec gravida sem, eu lacinia urna. Donec dignissim bibendum purus ut ornare. Ut sit amet purus dictum, congue est sit amet, gravida mi. In consectetur, est sit amet lacinia condimentum, dolor metus tempor justo, nec porttitor sem nunc quis tortor. Cras in scelerisque ipsum. Proin egestas rhoncus ligula, varius facilisis urna. Ut nunc dui, tincidunt eu mi vitae, euismod mattis massa. Donec rutrum magna aliquet nisl viverra maximus. Integer vitae urna lacinia, scelerisque tellus non, hendrerit sapien. Donec lobortis venenatis ligula, id mattis mi volutpat vitae. Vestibulum tempus et felis id feugiat.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
-Duis ac gravida velit. Vivamus vel metus ut dui vehicula elementum. Mauris vulputate rhoncus nibh, vitae elementum tortor efficitur at. Quisque nunc felis, maximus in egestas ac, aliquam ut enim. Morbi quis elit neque. Vivamus ligula sem, imperdiet in bibendum fermentum, pharetra a urna. Maecenas id faucibus lectus, a convallis massa. Ut vel condimentum tortor, at euismod tellus. Sed sit amet ultrices magna, et facilisis leo. Duis vel aliquet orci, consequat rutrum nibh. Curabitur eget nisl vel enim gravida cursus scelerisque at metus. Aenean ac ipsum dui. Nam sed quam vel lectus cursus mattis.
+All licenses for software shipped as part of Gyro are kept in [licenses](https://github.com/ralsina/gyro/tree/master/licenses) but here's a shorter version.
+
+* The editor is [SimpleMDE](https://github.com/sparksuite/simplemde-markdown-editor), [LICENSE](https://github.com/sparksuite/simplemde-markdown-editor/blob/master/LICENSE)
+* To display Markdown, Gyro uses [Showdown](https://github.com/showdownjs/showdown), [LICENSE](https://github.com/showdownjs/showdown/blob/master/license.txt)
+* For searching, Gyro uses [Lunr](https://lunrjs.com), [LICENSE](https://github.com/olivernn/lunr.js/blob/master/LICENSE)
+* Icon made by [Retinaicons](http://www.flaticon.com/authors/retinaicons) from www.flaticon.com
+* Autocomplete via [jQuery-autoComplete](https://github.com/Pixabay/jQuery-autoComplete), [LICENSE](http://www.opensource.org/licenses/mit-license.php)
+* Table of Contents via [Bootstrap-Toc](https://github.com/afeld/bootstrap-toc), [LICENSE](https://github.com/afeld/bootstrap-toc/blob/gh-pages/LICENSE.md)
