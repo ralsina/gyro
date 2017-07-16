@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
     jQuery(function ($) {
         $('body').on('click', '.change-style-menu-item', function () {
             var theme_name = $(this).attr('rel');
-            var theme = "//maxcdn.bootstrapcdn.com/bootswatch/3.3.7/" + theme_name + "/bootstrap.min.css";
+            var theme = "https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/" + theme_name + "/bootstrap.min.css";
             set_theme(theme);
         });
     });
@@ -94,7 +94,11 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#deletePageButton').addEventListener('click', deletePage);
     document.querySelector('#createPageButton').addEventListener('click', function newPage() {
         $("#newPageModal").modal("hide")
-        window.location.hash = '#' + $('#newPageName').val()
+        window.location.hash = '#/' + $('#newPageName').val()
+        // This would not be needed, but the modal is still 
+        // "visible" when the hash change event is processed
+        // so we need to force the load
+        load()
     });
     $('#search_input').autoComplete({
         source: titleSuggestions
