@@ -70,3 +70,5 @@ All licenses for software shipped as part of Gyro are kept in [licenses](https:/
 * Autocomplete via [jQuery-autoComplete](https://github.com/Pixabay/jQuery-autoComplete), [LICENSE](http://www.opensource.org/licenses/mit-license.php)
 * Table of Contents via [Bootstrap-Toc](https://github.com/afeld/bootstrap-toc), [LICENSE](https://github.com/afeld/bootstrap-toc/blob/gh-pages/LICENSE.md)
 * Zip file support using [JSKit](https://stuk.github.io/jszip/), [LICENSE](https://github.com/Stuk/jszip/blob/master/LICENSE.markdown)
+* Font selection using [JQuery fontselect](https://github.com/tommoor/fontselect-jquery-plugin), [LICENSE](http://en.wikipedia.org/wiki/MIT_License)
+* Theme selector from a blog post by [Will Dietz](https://wdtz.org/bootswatch-theme-selector.html)
