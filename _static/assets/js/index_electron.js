@@ -1,14 +1,16 @@
 help_path = '/static/help.md'
 
 function load() {
-    q = window.location.hash
-    if (!q || q == '') {
-        q = '#Index'
+    var h = window.location.hash
+    if (!h || h == '') {
+        h = '#Index'
     }
-    q = q.toLowerCase().slice(1, 9999)
-
-    var text = localStorage.getItem(q)
-    actual_load(text)
+    if (h.startsWith('#/')) {
+        // This is a Gyro page
+        q = h.toLowerCase().slice(1, 9999)
+        var text = localStorage.getItem(q)
+        actual_load(text)
+    }
 }
 
 function save() {
@@ -30,7 +32,10 @@ function search() {
         for (var i = 0, len = localStorage.length; i < len; ++i) {
             k = localStorage.key(i)
             v = localStorage.getItem(k)
-            this.add({ name: k, text: k })
+            this.add({
+                name: k,
+                text: k
+            })
         }
     })
     $("#searchModal").modal("show")

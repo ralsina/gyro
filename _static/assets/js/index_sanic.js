@@ -1,17 +1,20 @@
 help_path = '/_static/help.md'
 
 function load() {
-    q = window.location.hash
-    if (!q || q == '') {
-        q = '#Index'
+    var h = window.location.hash
+    if (!h || h == '') {
+        h = '#/index'
     }
-    q = q.toLowerCase().slice(1, 9999)
+    if (q.startsWith('#/')) {
+        // This is a Gyro page
+        q = h.toLowerCase().slice(1, 9999)
 
-    $.ajax({
-        url: q,
-        dataType: "text",
-        success: actual_load
-    });
+        $.ajax({
+            url: q,
+            dataType: "text",
+            success: actual_load
+        });
+    }
 }
 
 
