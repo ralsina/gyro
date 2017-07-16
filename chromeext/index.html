@@ -11,8 +11,9 @@
 	<meta name="description" content="Gyro is a small wiki engine">
 	<meta name="author" content="Roberto Alsina <roberto.alsina@gmail.com>">
 
-	<link href="static/assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="static/assets/css/bootstrap.min.css" rel="stylesheet" title='bootstrap'>
 	<link href="static/assets/css/bootstrap-toc.min.css" rel="stylesheet">
+	<link href="static/assets/css/fontselect.css" rel="stylesheet">
 	<link href="static/assets/css/simplemde.min.css" rel="stylesheet">
 	<link href="static/assets/css/jquery.auto-complete.css" rel="stylesheet">
 	<link href="static/assets/css/style.css" rel="stylesheet">
@@ -38,6 +39,7 @@
 						<form class="navbar-form navbar-right">
 							<button type="button" class="btn btn-info" id="editButton" aria-label="Edit Page"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
 							<button type="button" class="btn btn-info" id="newPageButton" aria-label="New Page"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button>
+							<button type="button" class="btn btn-info" id="settingsButton" aria-label="Settings"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></button>
 							<button type="button" class="btn btn-info" id="helpButton" aria-label="Help"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span></button>
 						</form>
 					</div>
@@ -64,6 +66,53 @@
 						</div>
 					</div>
 					<!-- END edit Modal -->
+					<!-- Settings Modal -->
+					<div id="settingsModal" class="modal fade" role="dialog" tabindex="-1">
+						<div class="modal-dialog modal-lg">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+									<h4 class="modal-title">Settings</h4>
+								</div>
+								<div class="modal-body">
+									<ul cass="list-group">
+										<li class="list-group-item"><span class="glyphicon glyphicon-download" aria-hidden="true"></span>&nbsp;&nbsp;Download Content</li>
+										<li class="list-group-item"><span class="glyphicon glyphicon-upload" aria-hidden="true"></span>&nbsp;&nbsp;Upload Contents</li>
+										<li class="list-group-item"><input id="fontSelector"></input>
+										</li>
+										<li class="list-group-item">
+												<span class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cogs icon-large"></i> Theme<b class="caret"></b></span>
+												<ul class="dropdown-menu">
+													<li><a href="#" class="change-style-menu-item" rel="flatly"><i class="icon-fixed-width icon-pencil"></i> Flatly (Default)</a></li>
+													<li><a href="#" class="change-style-menu-item" rel="cerulean"><i class="icon-fixed-width icon-pencil"></i> Cerulean</a></li>
+													<li><a href="#" class="change-style-menu-item" rel="cosmo"><i class="icon-fixed-width icon-pencil"></i> Cosmo</a></li>
+													<li><a href="#" class="change-style-menu-item" rel="cyborg"><i class="icon-fixed-width icon-pencil"></i> Cyborg</a></li>
+													<li><a href="#" class="change-style-menu-item" rel="darkly"><i class="icon-fixed-width icon-pencil"></i> Darkly</a></li>
+													<li><a href="#" class="change-style-menu-item" rel="journal"><i class="icon-fixed-width icon-pencil"></i> Journal</a></li>
+													<li><a href="#" class="change-style-menu-item" rel="lumen"><i class="icon-fixed-width icon-pencil"></i> Lumen</a></li>
+													<li><a href="#" class="change-style-menu-item" rel="paper"><i class="icon-fixed-width icon-pencil"></i> Paper</a></li>
+													<li><a href="#" class="change-style-menu-item" rel="readable"><i class="icon-fixed-width icon-pencil"></i> Readable</a></li>
+													<li><a href="#" class="change-style-menu-item" rel="sandstone"><i class="icon-fixed-width icon-pencil"></i> Sandstone</a></li>
+													<li><a href="#" class="change-style-menu-item" rel="simplex"><i class="icon-fixed-width icon-pencil"></i> Simplex</a></li>
+													<li><a href="#" class="change-style-menu-item" rel="slate"><i class="icon-fixed-width icon-pencil"></i> Slate</a></li>
+													<li><a href="#" class="change-style-menu-item" rel="solar"><i class="icon-fixed-width icon-pencil"></i> Solar</a></li>
+													<li><a href="#" class="change-style-menu-item" rel="spacelab"><i class="icon-fixed-width icon-pencil"></i> Spacelab</a></li>
+													<li><a href="#" class="change-style-menu-item" rel="superhero"><i class="icon-fixed-width icon-pencil"></i> Superhero</a></li>
+													<li><a href="#" class="change-style-menu-item" rel="united"><i class="icon-fixed-width icon-pencil"></i> United</a></li>
+													<li><a href="#" class="change-style-menu-item" rel="yeti"><i class="icon-fixed-width icon-pencil"></i> Yeti</a></li>
+												</ul>
+											</li>
+										</li>
+									</ul>
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- END settings Modal -->
 					<!-- Help Modal -->
 					<div id="helpModal" class="modal fade" role="dialog" tabindex="-1">
 						<div class="modal-dialog modal-lg">
@@ -143,6 +192,8 @@
 	<script src="static/assets/js/simplemde.min.js"></script>
 	<script src="static/assets/js/showdown.min.js"></script>
 	<script src="static/assets/js/lunr.js"></script>
+	<script src="static/assets/js/jszip.min.js"></script>
+	<script src="static/assets/js/jquery.fontselect.min.js"></script>
 	<script src="static/assets/js/index_electron.js"></script>
 	<script src="static/assets/js/connect_ui.js"></script>
 </body>

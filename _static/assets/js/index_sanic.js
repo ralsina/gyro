@@ -1,11 +1,13 @@
 help_path = '/_static/help.md'
 
+q = '/index'
+
 function load() {
     var h = window.location.hash
     if (!h || h == '') {
         h = '#/index'
     }
-    if (q.startsWith('#/')) {
+    if (h.startsWith('#/')) {
         // This is a Gyro page
         q = h.toLowerCase().slice(1, 9999)
 
@@ -16,7 +18,6 @@ function load() {
         });
     }
 }
-
 
 function save() {
     $.post(q, {
@@ -49,7 +50,7 @@ function search() {
         var container = $('#searchResults')
         container.text('')
         results.forEach(function (result) {
-            container.append('<li class="list-group-item"><a href="#' + result.ref + '">' + result.ref + '</a>')
+            container.append('<li class="list-group-item"><a href="#/' + result.ref + '">' + result.ref + '</a>')
         })
     })
 }

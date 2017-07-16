@@ -15,6 +15,48 @@ document.addEventListener('DOMContentLoaded', function () {
     document.querySelector('#editButton').addEventListener('click', function () {
         $("#editModal").modal("show")
     });
+    document.querySelector('#settingsButton').addEventListener('click', function () {
+        $("#settingsModal").modal("show")
+    });
+
+    // Configurable font handling
+    function setFont(font) {
+        if (!font || font == '') {
+            font = localStorage.getItem('_prefs:font')
+        }
+        if (font && font !='null') {
+            $('body')[0].style.fontFamily = font;
+            localStorage.setItem('_prefs:font', font)
+        }
+    }
+
+    $('#fontSelector').fontselect().change(function () {
+        // replace + signs with spaces for css
+        var font = $(this).val().replace(/\+/g, ' ');
+        setFont(font)
+    });
+
+    setFont()
+
+    /* When a theme-change item is selected, update theme */
+    jQuery(function ($) {
+        $('body').on('click', '.change-style-menu-item', function () {
+            var theme_name = $(this).attr('rel');
+            var theme = "//maxcdn.bootstrapcdn.com/bootswatch/3.3.7/" + theme_name + "/bootstrap.min.css";
+            set_theme(theme);
+        });
+    });
+
+    function set_theme(theme) {
+        if (!theme || theme == 'null') {
+            theme = localStorage.getItem('_prefs:theme')
+        }
+        if (theme && theme != 'null') {
+            $('link[title="bootstrap"]').attr('href', theme);
+            localStorage.setItem('_prefs:theme', theme)
+        }
+    }
+    set_theme()
 
     document.querySelector('#newPageButton').addEventListener('click', function () {
         $('#newPageName').val('')
@@ -37,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // For some reason, this also shows in the TOC headers from outside help
                 // So clean that crap out
-                $('#helpToc a').each( function(i){
+                $('#helpToc a').each(function (i) {
                     if ($('#helpContent ' + this.hash).length == 0) {
                         this.style.display = 'none'
                     }
@@ -96,16 +138,16 @@ document.addEventListener('DOMContentLoaded', function () {
     load();
 
     // Open a new page on hash changes
-    $(window).bind('hashchange', function() {
+    $(window).bind('hashchange', function () {
         // If we are showing a modal, don't jump to a separate page
         if (!$('#editModal').is(':visible') &&
             !$('#helpModal').is(':visible') &&
             !$('#newPageModal').is(':visible')) {
-                load()
-            } else {
-                // When a modal is shown, keep the hash fixed to the wiki page
-                window.location.hash = q
-            }
+            load()
+        } else {
+            // When a modal is shown, keep the hash fixed to the wiki page
+            window.location.hash = q
+        }
     });
 
     $('#search_input').keyup(function (e) {
@@ -124,6 +166,7 @@ function actual_load(text) {
     simplemde.value(text)
     $("#editModal").modal("hide")
     $("#searchModal").modal("hide")
+    $("#settingsModal").modal("hide")
     $('#search_input').val('')
 
     // Fix links in content to point to the right place
@@ -163,14 +206,11 @@ function actual_load(text) {
     ac = ''
     $('ol#crumbs').text('')
     path = q
-    if (path.startsWith('/') && !path.startsWith('/index')) {
-        path = 'index' + path
-    }
     path.split('/').forEach(function (crumb) {
         if (ac) {
             ac = ac + '/'
         }
         ac = ac + crumb
-        $('ol#crumbs').append('<li class="breadcrumb-item"><a href="#' + ac + '">' + crumb + '</a>')
+        $('ol#crumbs').append('<li class="breadcrumb-item"><a href="#/' + ac + '">' + crumb + '</a>')
     })
 }
