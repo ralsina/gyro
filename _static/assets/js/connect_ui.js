@@ -159,6 +159,10 @@ document.addEventListener('DOMContentLoaded', function () {
             search()
         }
     });
+    if (window.location.hash == '') {
+        window.location.hash = '#/index'
+        load()
+    }
 });
 
 function actual_load(text) {
