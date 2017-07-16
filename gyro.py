@@ -53,7 +53,11 @@ async def post_wikiword(request, word='index'):
     with open(path, mode='w', encoding='utf-8') as outf:
         outf.write(markdown)
         reindex_site()  # FIXME: this can be made more efficient.
-        return response.json({'message': 'Saved'})
+        return response.json(
+            {
+                'message': 'Saved'
+            }, headers={"Cache-Control": "no-cache"})
+
 
 @app.route('/<word:path>', methods=['DELETE'])
 @app.route('/', methods=['DELETE'])
@@ -82,12 +86,14 @@ def reindex_site():
 @app.route('/_title_list')
 async def get_title_list(request):
     titles = glob.glob(os.path.join('pages', '**', '*.md'), recursive=True)
-    titles = [os.path.splitext('/'.join(t.split(os.sep)[1:]))[0] for t in titles]
+    titles = [
+        os.path.splitext('/'.join(t.split(os.sep)[1:]))[0] for t in titles
+    ]
     return response.json(titles)
 
 
 if __name__ == '__main__':
-    host = os.environ.get('host','127.0.0.1')
-    port = int(os.environ.get('port','8000'))
-    debug = os.environ.get('debug','true').lower() == 'true'
+    host = os.environ.get('host', '127.0.0.1')
+    port = int(os.environ.get('port', '8000'))
+    debug = os.environ.get('debug', 'true').lower() == 'true'
     app.run(host, port, debug=debug)

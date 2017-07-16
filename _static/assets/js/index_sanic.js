@@ -1,3 +1,5 @@
+help_path = '/_static/help.md'
+
 function load() {
     q = window.location.hash
     if (!q || q == '') {

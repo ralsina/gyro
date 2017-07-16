@@ -100,8 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // If we are showing a modal, don't jump to a separate page
         if (!$('#editModal').is(':visible') &&
             !$('#helpModal').is(':visible') &&
-            !$('#newPageModal').is(':visible') &&
-            !$('#searchModal').is(':visible')) {
+            !$('#newPageModal').is(':visible')) {
                 load()
             } else {
                 // When a modal is shown, keep the hash fixed to the wiki page
