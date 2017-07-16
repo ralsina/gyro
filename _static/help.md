@@ -69,3 +69,4 @@ All licenses for software shipped as part of Gyro are kept in [licenses](https:/
 * Icon made by [Retinaicons](http://www.flaticon.com/authors/retinaicons) from www.flaticon.com
 * Autocomplete via [jQuery-autoComplete](https://github.com/Pixabay/jQuery-autoComplete), [LICENSE](http://www.opensource.org/licenses/mit-license.php)
 * Table of Contents via [Bootstrap-Toc](https://github.com/afeld/bootstrap-toc), [LICENSE](https://github.com/afeld/bootstrap-toc/blob/gh-pages/LICENSE.md)
+* Zip file support using [JSKit](https://stuk.github.io/jszip/), [LICENSE](https://github.com/Stuk/jszip/blob/master/LICENSE.markdown)
