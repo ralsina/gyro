@@ -14,6 +14,10 @@ The basic concept is that you have as many pages as you want, with whatever cont
 
 The content in the pages is written in a language called "Markdown", which aims to be simple to learn and can be easily converted to HTML or other formats you may find useful.
 
+If you really like this, feel free to [send me money](paypal.me/ralsina) I promise to spend it unwisely.
+
+
+
 # Creating Pages
 
 <button type="button" class="btn btn-info" aria-label="New Page"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></button>
