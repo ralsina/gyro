@@ -1,7 +1,6 @@
 # Gyro
 How easy to run can a wiki be? Let's see.
 
-
 ## How to try it
 
 Easiest way: `fades -r requirements.txt gyro.py`
@@ -24,6 +23,20 @@ Not so easy way: create a virtualenv manually, install dependencies from `requir
   docker run -p 80:80 gyro
   ```
 
+### Electron
+
+You need to have `npm` and `jinja2` installed.
+
+```make electron-build```
+
+### Google chrome extension
+
+You need to have `jinja2` installed.
+
+```make chromeext```
+
+You need to install it manually, and probably dont want to do it ;-)
+
 ## Credits
 
 All licenses for software shipped as part of Gyro are kept in licenses/ but here's a shorter version.
@@ -38,3 +51,12 @@ All licenses for software shipped as part of Gyro are kept in licenses/ but here
 * Zip file support using [JSKit](https://stuk.github.io/jszip/), [LICENSE](https://github.com/Stuk/jszip/blob/master/LICENSE.markdown)
 * Font selection using [JQuery fontselect](https://github.com/tommoor/fontselect-jquery-plugin), [LICENSE](http://en.wikipedia.org/wiki/MIT_License)
 * Theme selector from a blog post by [Will Dietz](https://wdtz.org/bootswatch-theme-selector.html)
+
+## TODO
+
+Things that need to happen before this is stable and publicized:
+
+- [ ] Export / Import functionality
+- [ ] I18n
+- [ ] UX overhaul
+
