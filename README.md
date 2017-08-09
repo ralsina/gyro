@@ -37,6 +37,12 @@ You need to have `jinja2` installed.
 
 You need to install it manually, and probably dont want to do it ;-)
 
+### Snap
+
+You need `snapcraft`, `jinja2` and `npm` installed.
+
+```make snap``` 
+
 ## Credits
 
 All licenses for software shipped as part of Gyro are kept in licenses/ but here's a shorter version.
